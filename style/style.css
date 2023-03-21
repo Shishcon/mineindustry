@@ -99,7 +99,7 @@ body {
 #oreDurability .bar{
     background-image: linear-gradient(#00FF00, #00AA00);
     height: 100%;
-    width: 64%;
+    width: 100%;
     transition: width 0.1s;
 }
 
