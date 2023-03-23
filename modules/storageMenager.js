@@ -1,13 +1,14 @@
-import { player, storageMgr } from "../main.js";
+//import { player } from "../main.js";
 import { oreLib } from "./ores.js";
 
 export class storageMenager {
 
-    constructor(){
+    constructor(player){
+        this.player = player;
         this.copper = 0;
         this.iron = 0;
         this.gold = 0;
-        document.getElementById("sellcopper").onclick = () => {storageMgr.sell("copper", 1)};
+        
     }
     
 
@@ -21,7 +22,7 @@ export class storageMenager {
 
     sell(ore, amount) {
         if (this[ore] >= amount) {
-            player.addCash(oreLib[ore].baseValue * amount);
+            this.player.addCash(oreLib[ore].baseValue * amount);
             this[ore] -= amount;
             /*
             switch(ore) {
