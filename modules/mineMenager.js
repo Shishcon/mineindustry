@@ -1,12 +1,13 @@
 import { oreLib } from "./ores.js";
-import { storageMgr } from "../main.js";
+//import { storageMgr } from "../main.js";
 
 export class mineMenager {
 
-    constructor(){
+    constructor(storageMgr){
         this.baseMinePower = 1;
         this.oreDiv = document.getElementById("ore").getElementsByTagName("div");
         this.selectedOre = oreLib.copper;
+        this.storageMgr = storageMgr;
         this.oreData = {
             maxHp : this.selectedOre.baseHp,
             hp : this.selectedOre.baseHp,
@@ -32,7 +33,7 @@ export class mineMenager {
         this.oreData.hp -= this.baseMinePower;
         if(this.oreData.hp <= 0){
             this.newOre();
-            storageMgr.add(this.selectedOre.id,1);
+            this.storageMgr.add(this.selectedOre.id,1);
         }
         this.update();
     }

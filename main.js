@@ -1,5 +1,6 @@
 //Imports
-import {mineMenager} from "./modules/mineMenager.js";
+import { oreLib } from "./modules/ores.js";
+import { mineMenager } from "./modules/mineMenager.js";
 import { storageMenager } from "./modules/storageMenager.js";
 
 //Player stats
@@ -17,7 +18,9 @@ export var player = {
     }
 }
 
+//var mineMgr,storageMgr;
 
+export var storageMgr = new storageMenager(player);
+var mineMgr = new mineMenager(storageMgr);
 
-export var storageMgr = new storageMenager();
-var mineMgr = new mineMenager();
+document.getElementById("sellcopper").onclick = () => {storageMgr.sell("copper", 1)};
