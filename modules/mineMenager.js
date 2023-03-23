@@ -1,5 +1,5 @@
 import { oreLib } from "./ores.js";
-import { player } from "../main.js";
+import { storageMgr } from "../main.js";
 
 export class mineMenager {
 
@@ -32,8 +32,7 @@ export class mineMenager {
         this.oreData.hp -= this.baseMinePower;
         if(this.oreData.hp <= 0){
             this.newOre();
-            player.money += this.selectedOre.baseValue;
-            console.log(player.money);
+            storageMgr.add(this.selectedOre.id,1);
         }
         this.update();
     }
